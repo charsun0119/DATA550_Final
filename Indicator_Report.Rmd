@@ -1,0 +1,67 @@
+---
+title: "DATA550 Final Report"
+author: "Yijing Sun"
+output: html_document
+date: "2025-11-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(dplyr)
+library(gtsummary)
+library(labelled)
+library(gt)
+library(tidyr)
+library(ggplot2)
+```
+
+# Indicators of Anxiety or Depression Based on Reported Frequency of Symptoms During Last 7 Days
+
+## Description
+
+The Household Pulse Survey, conducted by the National Center for Health Statistics (NCHS) partnered with the Census Bureau, is a 20-minute online survey designed to rapidly and efficiently reflect how emergent social and economic issues impacted households across the country. This data set is a part of the survey that primarily focused on the national and the state level mental health trends under the COVID-19 pandemic from 2020 to 2024, based on validate screening questions following the two-item Patient Health Questionnaire (PHQ-2) and the two-item Generalized Anxiety Disorder (GAD-2) scale. Information on symptoms over the last 7 days, which was later expanded to a two-week reference period beginning July 2021. The data set also includes breakdown by demographic subgroups including age, sex, race/ethnicity, and educational attainment.
+
+
+```{r, read_data_from_web}
+here::i_am("Indicator_Report.rmd")
+Anxiety_depression_data_url <- "https://data.cdc.gov/api/views/8pt5-q6wp/rows.csv"
+df <- read.csv(Anxiety_depression_data_url, header=TRUE)
+
+```
+
+## General Trends in the Average Anxiety/Depression from 2020 to 2024
+
+The national mean severity scores for self-reported symptoms of depression, anxiety, and combined depression or anxiety show a general declining trend from 2020 to 2024, with the lowest levels observed in 2024 following a sharp drop. For all three indicators, the highest levels were recorded in 2020 (Table 1a). A similar trend is also observed in the state of Georgia (Table 1b).
+
+```{r, read_table_1a}
+table_1a <- readRDS(
+  here::here("outputs/table_1a.rds")
+)
+
+```
+
+```{r, read_table_1b}
+table_1b <- readRDS(
+  here::here("outputs/table_1b.rds")
+)
+
+```
+
+## Demographic Factors on National Mean Severity Scores for Mental Health Symptoms in 2020
+
+Given that the highest national mean severity scores of all three indicators are observed in the year of 2020, it is crucial to analyze how various demographic factors, such as ages, influence the distribution of symptom severity in the U.S. For all three indicators, the highest mean severity scores are observed among age group of 18-29 years, with a general declining trend among older age groups(Figure 1). 
+
+```{r}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("outputs", "figure_1a.png")
+)
+knitr::include_graphics(
+  here::here("outputs", "figure_1b.png")
+)
+knitr::include_graphics(
+  here::here("outputs", "figure_1c.png")
+)
+```
+
