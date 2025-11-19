@@ -1,3 +1,6 @@
+install:
+	Rscript -e "renv::restore()"
+
 Analysis: table figures Indicator_Report.html
 
 table: \
@@ -15,11 +18,11 @@ subproject1/output/scatter.png: subproject1/code/02_make_scatter.R data/data_cle
 
 
 figures: \
-	outputs/figure_1a.png
-	outputs/figure_1b.png
-	outputs/figure_1c.png
+	"outputs/figure_1a.png" \
+	"outputs/figure_1b.png" \
+	"outputs/figure_1c.png"
 
-outputs/figure_1a.png outputs/figure_1b.png outputs/figure_1c.png: code/figure/figure_1.R data/Indicators_of_Anxiety_or_Depression_Based_on_Reported_Frequency_of_Symptoms_During_Last_7_Days.csv
+"outputs/figure_1a.png" "outputs/figure_1b.png" "outputs/figure_1c.png": code/figure/figure_1.R data/Indicators_of_Anxiety_or_Depression_Based_on_Reported_Frequency_of_Symptoms_During_Last_7_Days.csv
 	Rscript code/figure/figure_1.R
 
 Indicator_Report.html: render_report.R \
