@@ -19,9 +19,6 @@ The entire project environment is defined in the Dockerfile. Building the image 
 To build the Docker image locally, at the root directory of the project run "docker build -t data550-report" in R terminal. 
 
 ### Creating the Report in Docker
-At the root directory of the project, run:
-"docker run --rm \
-  -v "$(pwd)/report_output:/project/outputs" \
-  data550-report:latest"
-in R terminal. 
+Execute the Analysis and Create the Report
 
+To create the report, at to the root directory of the project run "docker run -it data550-report:latest" in R terminal
