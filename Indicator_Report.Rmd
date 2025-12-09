@@ -3,6 +3,9 @@ title: "DATA550 Final Report"
 author: "Yijing Sun"
 output: html_document
 date: "2025-11-04"
+knitr:
+  opts_knit:
+    root.dir: !expr here::here()
 ---
 
 ```{r setup, include=FALSE}
@@ -23,7 +26,7 @@ The Household Pulse Survey, conducted by the National Center for Health Statisti
 
 
 ```{r, read_data_from_web}
-here::i_am("Indicator_Report.rmd")
+
 Anxiety_depression_data_url <- "https://data.cdc.gov/api/views/8pt5-q6wp/rows.csv"
 df <- read.csv(Anxiety_depression_data_url, header=TRUE)
 
@@ -37,14 +40,14 @@ The national mean severity scores for self-reported symptoms of depression, anxi
 table_1a <- readRDS(
   here::here("outputs/table_1a.rds")
 )
-
+knitr::kable(table_1a)
 ```
 
 ```{r, read_table_1b}
 table_1b <- readRDS(
   here::here("outputs/table_1b.rds")
 )
-
+knitr::kable(table_1b)
 ```
 
 ## Demographic Factors on National Mean Severity Scores for Mental Health Symptoms in 2020
