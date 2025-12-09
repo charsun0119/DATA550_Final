@@ -6,13 +6,13 @@ The report will be broken into several subprojects:
 - The outputs will be saved in 'output' folder
 - The original data can be found in 'data' folder
 - The final report can be found in 'report' folder
-- 
+  
 ### Building the Project
-This project uses a Makefile to ensure that all analyses and outputs can be reproduced. To build the entire project (including tables, regression outputs, and the final report), run "make" in R terminal; to remove previously generated files, run "make clean". 
+This project uses a Makefile to ensure that all analyses and outputs can be reproduced. To build the entire project (including tables, regression outputs, and the final report), run "make" in R terminal; to remove previously generated files, run "make clean". \n
 To restore the package environment, at the root directory of the project run "make install" in R terminal, or renv::restore() in R console. 
 
 ### Building the Docker Image
-The entire project environment is defined in the Dockerfile. Building the image ensures a fully reproducible environment for the analysis.
+The entire project environment is defined in the Dockerfile. Building the image ensures a fully reproducible environment for the analysis. \n
 To build the Docker image locally, at the root directory of the project run "docker build -t data550-report" in R terminal. 
 
 ### Creating the Report in Docker
