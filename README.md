@@ -5,4 +5,6 @@ The report will be broken into several subprojects:
 - The Codes for generating tables and figures (the numbers are not decided yet) can be found in 'code/table' and 'code/figure' folder, respectively
 - The outputs will be saved in 'output' folder
 - The original data can be found in 'data' folder
-- The final report will be generated using the run_report.R script or Makefile.
+### Building the Project
+This project uses a Makefile to ensure that all analyses and outputs can be reproduced. To build the entire project (including tables, regression outputs, and the final report), run "make" in R terminal; to remove previously generated files, run "make clean". 
+To restore the package environment, run "make install" in R terminal, or renv::restore() in R console. 
