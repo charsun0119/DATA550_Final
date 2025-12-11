@@ -4,9 +4,17 @@ The Household Pulse Survey, conducted by the National Center for Health Statisti
 
 The report will be broken into several subprojects:
 - The Codes for generating tables and figures (the numbers are not decided yet) can be found in 'code/table' and 'code/figure' folder, respectively
+   1. code/table/: This folder contains all R scripts used to generate analytic tables for the report.
+      a. table_1a.R: Summarizing national mean severity scores for anxiety, depression, and combined indicators across years
+      b. table_1b.R: Summarizing the same severity indicators for the state of Georgia
+   2. code/figure/: This folder contains all R scripts used to produce figures visualizing trends and demographic patterns.
+      a. figure_1.R: Produces Figures 1A–1C, showing symptom severity across age groups for all indicators.
 - The outputs will be saved in 'output' folder
-- The original data can be found in 'data' folder
-- The final report can be found in 'report' folder
+   1. All intermediate outputs created by the project are saved here, including:
+      a. .rds files for tables
+      b. .png files for figures
+- The original data (CDC Household Pulse Survey files) can be found in 'data' folder
+- The final report can be found in 'final_report' folder generated
   
 ### Building the Project
 This project uses a Makefile to ensure that all analyses and outputs can be reproduced. To build the entire project (including tables, regression outputs, and the final report), run "make" in R terminal; to remove previously generated files, run "make clean". 
