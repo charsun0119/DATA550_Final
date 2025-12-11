@@ -29,10 +29,8 @@ To build the Docker image locally, run "make docker-run" or "docker build -t dat
 ### Creating the Report in Docker
 Execute the Analysis and Create the Report
 
-To create the report, at to the root directory of the project, run:
+To create the report, at to the root directory of the project, run "make docker-run" in terminal. However, if you are a Windows user, you MUST run the following code using the absolute path, or you will find an empty folder named "final_report;C" in your local directory (this happens to me all the time):
 
-docker run --rm \
-  -v "$(pwd)/report_output:/project/outputs" \
-  data550-report:latest
-  
-in R terminal
+For example, if your local directory is "C:\DATA550_Final-main", you MUST run: docker run -it -v "/c/DATA550_Final-main/final_report" data550-report:latest
+
+
