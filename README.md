@@ -22,7 +22,7 @@ This project uses a Makefile to ensure that all analyses and outputs can be full
 ### Building the Docker Image
 The entire project environment is defined in the Dockerfile. Building the image ensures a fully reproducible environment for the analysis. 
 
-To build the Docker image locally, run "make docker-run" or "docker build -t data550-report" in R terminal. 
+To build the Docker image locally, run "make docker-run" or "docker build -t data550-report" in R terminal. To access the image online, visit https://hub.docker.com/repository/docker/swyy132/data550-report/general
 
 ### Creating the Report in Docker
 Execute the Analysis and Create the Report
