@@ -1,27 +1,37 @@
-FROM rocker/tidyverse:4.5.1
+FROM rocker/r-ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    pandoc \
+    libcurl4-openssl-dev \
+    libxml2-dev \
+    libx11-dev \
+    libnode-dev \
+    libssl-dev \
+    libfontconfig1-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libfreetype6-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /project
 WORKDIR /project
 
-RUN mkdir -p renv
-COPY renv.lock .
+RUN mkdir -p outputs
+
+COPY code code
+COPY Makefile .
+COPY Indicator_Report.Rmd .    
+COPY data data
+
 COPY .Rprofile .
+COPY renv.lock .
+RUN mkdir -p renv
 COPY renv/activate.R renv/
 COPY renv/settings.json renv/
-RUN mkdir -p renv/.cache
-ENV RENV_PATHS_CACHE="renv/.cache"
 
-RUN apt-get update && apt-get install -y libv8-dev
+RUN Rscript -e "renv::restore(prompt=FALSE)"
 
-RUN Rscript -e "renv::restore(prompt = FALSE)"
+RUN mkdir -p final_report 
 
-RUN mkdir -p code data outputs report
+CMD make && mv report.html final_report/
 
-COPY code/ code/
-COPY data/ data/
-COPY outputs/ outputs/
-COPY Makefile .
-COPY Indicator_Report.Rmd .
-
-ENTRYPOINT ["make"]
-CMD ["report"]

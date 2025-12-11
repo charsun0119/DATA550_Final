@@ -1,11 +1,15 @@
-here::i_am("code/figure/figure_1.r")
 
+library(here)
 library(dplyr)
 library(gtsummary)
 library(labelled)
 library(gt)
 library(tidyr)
 library(ggplot2)
+
+
+here::i_am("code/figure/figure_1.r")
+
 
 df <- read.csv(
   file = here::here("data", "Indicators_of_Anxiety_or_Depression_Based_on_Reported_Frequency_of_Symptoms_During_Last_7_Days.csv")

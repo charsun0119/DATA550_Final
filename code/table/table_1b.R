@@ -1,15 +1,18 @@
-here::i_am("code/table/table_1b.r")
-
-df <- read.csv(
-  file = here::here("data", "Indicators_of_Anxiety_or_Depression_Based_on_Reported_Frequency_of_Symptoms_During_Last_7_Days.csv")
-)
-
 library(dplyr)
 library(gtsummary)
 library(labelled)
 library(gt)
 library(tidyr)
 library(ggplot2)
+library(here)
+
+here::i_am("code/table/table_1b.r")
+
+df <- read.csv(
+  file = here::here("data", "Indicators_of_Anxiety_or_Depression_Based_on_Reported_Frequency_of_Symptoms_During_Last_7_Days.csv")
+)
+
+
 
 df$Year <- ifelse(grepl("2020", df$`Time.Period.Label`), "2020",
            ifelse(grepl("2021", df$`Time.Period.Label`), "2021",
