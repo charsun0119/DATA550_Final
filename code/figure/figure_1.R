@@ -8,7 +8,7 @@ library(tidyr)
 library(ggplot2)
 
 
-here::i_am("code/figure/figure_1.r")
+here::i_am("code/figure/figure_1.R")
 
 
 df <- read.csv(

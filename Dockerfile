@@ -33,5 +33,5 @@ RUN Rscript -e "renv::restore(prompt=FALSE)"
 
 RUN mkdir -p final_report 
 
-CMD make && mv report.html final_report/
+CMD ["sh", "-c", "make && cp report/Indicator_Report.html final_report/"]
 

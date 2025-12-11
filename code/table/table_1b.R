@@ -6,7 +6,7 @@ library(tidyr)
 library(ggplot2)
 library(here)
 
-here::i_am("code/table/table_1b.r")
+here::i_am("code/table/table_1b.R")
 
 df <- read.csv(
   file = here::here("data", "Indicators_of_Anxiety_or_Depression_Based_on_Reported_Frequency_of_Symptoms_During_Last_7_Days.csv")
