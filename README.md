@@ -21,4 +21,10 @@ To build the Docker image locally, at the root directory of the project run "doc
 ### Creating the Report in Docker
 Execute the Analysis and Create the Report
 
-To create the report, at to the root directory of the project run "docker run -it data550-report:latest" in R terminal
+To create the report, at to the root directory of the project, run:
+
+docker run --rm \
+  -v "$(pwd)/report_output:/project/outputs" \
+  data550-report:latest
+  
+in R terminal
